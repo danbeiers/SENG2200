@@ -2,7 +2,7 @@
 Author: Daniel Beiers c3039134
 Date:
 Project: SENG2200 Assignment 1
-Description: This class will hold the value of two floating point number as coordinates as private variables.
+Description: This class will hold the value of two floating point numbers as coordinates as private variables.
              These will be accessible via standard getter and setter methods.
              The class also contain an override method to return the point as a string and a method to calculate the distance back to the cartesian origin.
  */
@@ -10,6 +10,7 @@ import java.lang.Math;
 
 public class Point {
 
+    //Points are doubles representing coordinates on a cartesian plane.
     private double x;
     private double y;
 
@@ -23,6 +24,7 @@ public class Point {
         y = y_;
     }
 
+    //Standard getters and setters.
     public double getX() {
         return x;
     }
@@ -39,12 +41,13 @@ public class Point {
         this.y = y;
     }
 
+    //Method to calculate the distance to the origin using Pythagoras's theorem and return the value as a double.
     public double distanceToOrigin(){
         double distance = Math.sqrt((x*x) + (y*y));
-        //String result = String.format("%4.2f",distance);
-        return distance;//Double.valueOf(result);
+        return distance;
     }
 
+    //This method overrides the standard toString method and returns a string representing the two coordinates truncated to two decimal points.
     @Override
     public String toString(){
         return String.format("(%4.2f , %4.2f)",x,y);

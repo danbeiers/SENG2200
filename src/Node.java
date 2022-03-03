@@ -1,25 +1,21 @@
 /*
-This class defines a node to be used as an Polygon that references an 'Polygon' load, and also points to a
-'next' and 'previous' node Polygons.
+Author: Daniel Beiers c3039134
+Date:
+Project: SENG2200 Assignment 1
+Description: This class defines a node to be used as data carrier that references an object payload, and also points to a
+'next' and 'previous' node.
  */
-public class Node <T>{
+public class Node {
     //Private variables indicating the node pointers and the payload of the node.
     private Node prev;
     private Node next;
-    private T data;
+    private Polygon data;
 
     //Empty constructor
     public Node(){
         prev = null;
         next = null;
         data = null;
-    }
-
-    //Constructor with predefined parameter arguments
-    public Node(Node next, Node prev, T data){
-      this.next = next;
-      this.prev = prev;
-      this.data = data;
     }
 
     //Generic getters and setters for nodes and payload
@@ -31,7 +27,7 @@ public class Node <T>{
         return prev;
     }
 
-    public T getData() {
+    public Polygon getData() {
         return data;
     }
 
@@ -43,7 +39,7 @@ public class Node <T>{
         this.prev = prev;
     }
 
-    public void setData(T data) {
+    public void setData(Polygon data) {
         this.data = data;
     }
 }
