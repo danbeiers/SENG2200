@@ -78,7 +78,7 @@ public class A1 {
                     //Loops until the data is added
                     while(!added){
                         //Compares the next data object to be added with the data object at 'current' pointer in the sorted listed.
-                        int result = ((Polygon) unsortedList.getCurrent().getData()).compareTo((Polygon) sortedList.getCurrent().getData());
+                        int result = (unsortedList.getCurrent().getData()).compareTo(sortedList.getCurrent().getData());
                         //If the polygon is equal it is inserted before the 'current' node in the list.
                         if(result == 0) {
                             sortedList.insert(unsortedList.getCurrent().getData());

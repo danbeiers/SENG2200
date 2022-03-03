@@ -119,7 +119,7 @@ public class MyPolygons {
     public void resetToHead(){
         this.current.getPrev().setNext(this.current.getNext());
         this.current.getNext().setPrev(this.current.getPrev());
-        prepend((Polygon) this.current.getData());
+        prepend(this.current.getData());
     }
 
     //Removes the node at the start of the list and returns the data object the node was carrying.
@@ -129,7 +129,7 @@ public class MyPolygons {
         newNode.getNext().setPrev(this.sentinel);
         this.sentinel.setNext(newNode.getNext());
         this.size--;
-        return (Polygon) newNode.getData();
+        return newNode.getData();
     }
 
     //The toString method is overridden to return a string containing the data of every node in the list.
