@@ -1,11 +1,11 @@
 /*
 Author: Daniel Beiers c3039134
-Date:
+Date: 16.3.22
 Project: SENG2200 Assignment 1
 Description:    This class is an object designed to hold information regarding the vertices of a polygon.
                 An array is initialised, and each element is a Point object.
 */
-public class Polygon implements Comparable<Polygon>{
+public class Polygon implements ComparePoly{
 
     //Private variables
     //'originPoint' holds a Point that is determined to be closest to the origin. Updated as every Point is added.
@@ -101,15 +101,14 @@ public class Polygon implements Comparable<Polygon>{
         return output;
     }
 
-    //A Polygon object is passed to this overridden 'compareTo' method.
+    //A Polygon object is passed to this implementation of the ComparePoly class method.
     //A percentage, as a decimal, of the smallest polygon is used to evaluate the tolerance in area difference.
     //If the areas are within this value, polygons are equated to have the same area.
     //If area is the same, the Polygon with vertice closest to the origin is assumed to have a 'less than' equivalent and a negative integer returned.
     //If the passed parameter Polygon has a greater area or greater distance from origin it is identified as being 'greater than' and a positive integer returned
     //If the polygons have equal area and the same vertices of equal distance to the origin than they are equated to be 'equal' and a zero is returned.
-    @Override
-    public int compareTo(Polygon o) {
-        double tolerance = 0.0;
+    public boolean ComesBefore(Polygon o) {
+        double tolerance;
         if (this.area() <= o.area()) {
             tolerance = this.area() * TOLERANCE_FACTOR;
         } else {
@@ -118,15 +117,14 @@ public class Polygon implements Comparable<Polygon>{
 
         if (Math.abs(o.area() - this.area()) <= tolerance) {
             if (this.originPoint.distanceToOrigin() == o.originPoint.distanceToOrigin())
-                return 0;
+                return true;
             else if (this.originPoint.distanceToOrigin() < o.originPoint.distanceToOrigin())
-                return -1;
+                return true;
             else if (this.originPoint.distanceToOrigin() > o.originPoint.distanceToOrigin())
-                return 1;
+                return false;
         }
-        else if (this.area() < o.area())
-            return -1;
+        else return this.area() < o.area();
 
-        return 1;
+        return false;
     }
 }

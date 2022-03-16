@@ -1,6 +1,6 @@
 /*
 Author: Daniel Beiers c3039134
-Date:
+Date: 16.3.22
 Project: SENG2200 Assignment 1
 Description: This class will hold the value of two floating point numbers as coordinates as private variables.
              These will be accessible via standard getter and setter methods.
@@ -43,8 +43,7 @@ public class Point {
 
     //Method to calculate the distance to the origin using Pythagoras's theorem and return the value as a double.
     public double distanceToOrigin(){
-        double distance = Math.sqrt((x*x) + (y*y));
-        return distance;
+        return Math.sqrt((x*x) + (y*y));
     }
 
     //This method overrides the standard toString method and returns a string representing the two coordinates truncated to two decimal points.

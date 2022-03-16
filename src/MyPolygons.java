@@ -1,6 +1,6 @@
 /*
 Author: Daniel Beiers c3039134
-Date:
+Date: 16.3.22
 Project: SENG2200 Assignment 1
 Description: A circular linked list that uses a sentinel node, which carries no data, that acts as the head and the tail.
  */
@@ -153,12 +153,9 @@ public class MyPolygons {
                     //Loops until the data is added
                     while(!added){
                         //Compares the next data object to be added with the data object at 'current' pointer in the sorted listed.
-                        int result = (unsortedList.getCurrent().getData()).compareTo(sortedList.getCurrent().getData());
+                        boolean result = (unsortedList.getCurrent().getData()).ComesBefore(sortedList.getCurrent().getData());
                         //If the polygon is equal it is inserted before the 'current' node in the list.
-                        if(result == 0) {
-                            sortedList.insert(unsortedList.getCurrent().getData());
-                            added = true;
-                        }else if(result < 0){
+                        if(result) {
                             sortedList.insert(unsortedList.getCurrent().getData());
                             sortedList.currentToHead();
                             added = true;

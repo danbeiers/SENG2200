@@ -1,6 +1,6 @@
 /*
 Author: Daniel Beiers c3039134
-Date:
+Date: 16.3.22
 Project: SENG2200 Assignment 1
 Description: This class defines a node to be used as data carrier that references an object payload, and also points to a
 'next' and 'previous' node.

@@ -1,6 +1,6 @@
 /*
 Author: Daniel Beiers c3039134
-Date:
+Date: 16.3.22
 Project: SENG2200 Assignment 1
 Description: This class takes a text file as a command line argument and parses the values as points of a polygon with the
                 capability of storing multiple polygons in a linked list.
