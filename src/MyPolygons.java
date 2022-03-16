@@ -132,6 +132,54 @@ public class MyPolygons {
         return newNode.getData();
     }
 
+    //This method returns a new MyPolygons object with the polygons sorted in ascending area.
+    public MyPolygons insertInOrder(){
+
+        MyPolygons unsortedList = this;
+        MyPolygons sortedList = new MyPolygons();
+
+        //If the list contains less than two polygons no sorting is required.
+        if(unsortedList.getSize() >= 2) {
+            //Set current pointer of unsorted list to first node in unsorted list
+            unsortedList.currentToHead();
+            //Loop until current is point to the sentinel which means all nodes have been copied to new sorted list
+            while(unsortedList.getCurrent() != unsortedList.getSentinel()){
+                //If sorted list is empty, insert first node from unsorted list
+                if(sortedList.getSize() == 0) {
+                    sortedList.prepend(unsortedList.getCurrent().getData());
+                }
+                else{
+                    boolean added = false;
+                    //Loops until the data is added
+                    while(!added){
+                        //Compares the next data object to be added with the data object at 'current' pointer in the sorted listed.
+                        int result = (unsortedList.getCurrent().getData()).compareTo(sortedList.getCurrent().getData());
+                        //If the polygon is equal it is inserted before the 'current' node in the list.
+                        if(result == 0) {
+                            sortedList.insert(unsortedList.getCurrent().getData());
+                            added = true;
+                        }else if(result < 0){
+                            sortedList.insert(unsortedList.getCurrent().getData());
+                            sortedList.currentToHead();
+                            added = true;
+                        }else{
+                            sortedList.stepNext();
+                            if(sortedList.getCurrent() == sortedList.getSentinel()){
+                                sortedList.append(unsortedList.getCurrent().getData());
+                                added = true;
+                            }
+                        }
+                    }
+                }
+                unsortedList.stepNext();
+            }
+
+        }else{
+            sortedList = unsortedList;
+        }
+        return sortedList;
+    }
+
     //The toString method is overridden to return a string containing the data of every node in the list.
     //Requires a toString method in the object class to interpret the object data.
     @Override
